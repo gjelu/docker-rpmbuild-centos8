@@ -8,7 +8,7 @@ pipeline {
   }
   environment {
     IMAGE      = "rpmbuild-centos8"
-    TAG        = "latest"
+    TAG        = "rust"
     TEMP_IMAGE = "rpmbuild8_${TAG}_${BUILD_NUMBER}"
   }
   stages {
@@ -39,11 +39,6 @@ pipeline {
   }
   post {
     success {
-      //build job: 'Docker/docker-rpmbuild-centos8/golang', wait: false
-      //build job: 'Docker/docker-rpmbuild-centos8/devtools8', wait: false
-      //build job: 'Docker/docker-rpmbuild-centos8/rust', wait: false
-      //build job: 'Docker/docker-rpmbuild-centos8/haskell', wait: false
-
       juxtapose event: 'success'
       sh 'figlet "SUCCESS"'
     }
